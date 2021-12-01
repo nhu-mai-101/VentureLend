@@ -39,6 +39,11 @@
         "semi": [
             "error",
             "always"
+        ],
+        "import/extensions": [
+            "always"
         ]
     }
+
+
 }
