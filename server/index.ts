@@ -1,9 +1,9 @@
-const express = require('express');
+import express, {Request, Response, NextFunction} from 'express';
 
 const app = express();
 const port = 3000;
 
-const logRequests = (req, res, next) => {
+const logRequests = (req: Request, res: Response, next: NextFunction) => {
   console.log(`Recieved a ${req.method} request to ${req.path}`);
   next();
 }
