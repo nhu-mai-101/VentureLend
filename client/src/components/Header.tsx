@@ -25,12 +25,11 @@ const Header = () => {
             <Link to="/login">
               <ActionButton color="inherit">Login</ActionButton>
             </Link>
+
             <Routes>
-              <Route path="/signup">
-                <SignUp />
+              <Route path="/signup" element={<SignUp />}>
               </Route>
-              <Route path="/login">
-                <LogIn />
+              <Route path="/login" element={<LogIn />}>
               </Route>
             </Routes>
           </Router>
