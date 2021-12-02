@@ -2,6 +2,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SignUp from '../pages/SignUp.tsx';
 import LogIn from '../pages/LogIn.tsx';
+import LandingPage from '../pages/Landing.tsx';
 import styled from 'styled-components';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,32 +12,33 @@ import Button from '@mui/material/Button';
 
 const Header = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <StyledToolbar>
-          <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-            LendingClub
-          </Typography>
-
-          <Router>
-            <Link to="/signup">
-              <ActionButton color="inherit">Sign Up</ActionButton>
-            </Link>
-            <Link to="/login">
-              <ActionButton color="inherit">Login</ActionButton>
-            </Link>
-
+    <Router>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <StyledToolbar >
+              <Link to="/">
+                <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
+                  LendingClub
+                </Typography>
+              </Link>
+              <Link to="/signup">
+                <ActionButton color="inherit">Sign Up</ActionButton>
+              </Link>
+              <Link to="/login">
+                <ActionButton color="inherit">Login</ActionButton>
+              </Link>
+          </StyledToolbar>
             <Routes>
+              <Route path="/" element={<LandingPage />}>
+              </Route>
               <Route path="/signup" element={<SignUp />}>
               </Route>
               <Route path="/login" element={<LogIn />}>
               </Route>
             </Routes>
-          </Router>
-
-        </StyledToolbar>
-      </AppBar>
-    </Box>
+        </AppBar>
+      </Box>
+    </Router>
   )
 }
 
@@ -44,6 +46,8 @@ export default Header;
 
 const StyledToolbar = styled(Toolbar)`
   height: 80px;
+  display: flex;
+  flex-direction: row;
 `;
 
 const ActionButton = styled(Button)`
