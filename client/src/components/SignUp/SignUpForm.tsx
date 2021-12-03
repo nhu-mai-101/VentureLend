@@ -1,19 +1,34 @@
 import * as React from 'react';
-import {useState}  from 'react';
+import {useState, useRef}  from 'react';
+import {useAuth} from '../../contexts/AuthContext';
+import { Link, useHistory } from "react-router-dom"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
 
 const SignUpForm = () => {
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const firstNameRef = useRef<HTMLInputElement>(null!);
+  const lastNameRef = useRef<HTMLInputElement>(null!);
+  const emailRef = useRef<HTMLInputElement>(null!);
+  const passwordRef = useRef<HTMLInputElement>(null!);
+  const { signUp } = useAuth();
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const history = useHistory()
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(firstName, lastName, email, password);
+    try {
+      setError('');
+      setLoading(true);
+      await signUp(emailRef.current.value, passwordRef.current.value)
+      history.push('/');
+    } catch {
+      setError("Failed to create an account")
+    }
+    setLoading(false)
   };
 
   return (
@@ -37,43 +52,40 @@ const SignUpForm = () => {
       <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
         Sign Up
       </Typography>
+      {error && <Alert severity="error">{error}</Alert>}
       <TextField
         required
         id="firstName"
         label="First Name"
         variant="outlined"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
+        inputRef={firstNameRef}
       />
       <TextField
         required
         id="lastName"
         label="Last Name"
         variant="outlined"
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
+        inputRef={lastNameRef}
       />
       <TextField
         required
         id="email"
         label="E-mail"
         variant="outlined"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        inputRef={emailRef}
       />
       <TextField
         required
         id="password"
         label="Password"
         variant="outlined"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        inputRef={passwordRef}
       />
-      <Button color="inherit" onClick={handleSubmit}>
+      <Button color="inherit" onClick={handleSubmit} disabled={loading}>
         SIGN UP
       </Button>
       <Typography>
-        Already have an account? Log In
+        Already have an account? <Link to="/login">Log In</Link>
       </Typography>
     </Box>
   )

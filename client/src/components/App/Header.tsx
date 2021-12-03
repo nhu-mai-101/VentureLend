@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import SignUp from '../pages/SignUp';
-import LogIn from '../pages/LogIn';
-import LandingPage from '../pages/Landing';
+import SignUp from '../SignUp/SignUp';
+import LogIn from '../LogIn/LogIn';
+import LandingPage from '../Landing/Landing';
 import styled from 'styled-components';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
