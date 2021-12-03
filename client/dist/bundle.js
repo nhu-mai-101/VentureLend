@@ -3175,6 +3175,17 @@ eval("\nvar __makeTemplateObject = (this && this.__makeTemplateObject) || functi
 
 /***/ }),
 
+/***/ "./client/src/components/LogInForm.tsx":
+/*!*********************************************!*\
+  !*** ./client/src/components/LogInForm.tsx ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __assign = (this && this.__assign) || function () {\n    __assign = Object.assign || function(t) {\n        for (var s, i = 1, n = arguments.length; i < n; i++) {\n            s = arguments[i];\n            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))\n                t[p] = s[p];\n        }\n        return t;\n    };\n    return __assign.apply(this, arguments);\n};\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nvar react_1 = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nvar Button_1 = __importDefault(__webpack_require__(/*! @mui/material/Button */ \"./node_modules/@mui/material/Button/index.js\"));\nvar TextField_1 = __importDefault(__webpack_require__(/*! @mui/material/TextField */ \"./node_modules/@mui/material/TextField/index.js\"));\nvar Box_1 = __importDefault(__webpack_require__(/*! @mui/material/Box */ \"./node_modules/@mui/material/Box/index.js\"));\nvar Typography_1 = __importDefault(__webpack_require__(/*! @mui/material/Typography */ \"./node_modules/@mui/material/Typography/index.js\"));\nvar LogInForm = function () {\n    var _a = (0, react_1.useState)(''), email = _a[0], setEmail = _a[1];\n    var _b = (0, react_1.useState)(''), password = _b[0], setPassword = _b[1];\n    var handleSubmit = function (e) {\n        e.preventDefault();\n        console.log(email, password);\n    };\n    return ((0, jsx_runtime_1.jsxs)(Box_1.default, __assign({ component: \"form\", sx: {\n            '& .MuiTextField-root': { m: 1, width: '90%' },\n            width: '30vw',\n            border: '1px solid grey',\n            borderRadius: 2,\n            backgroundColor: 'white',\n            display: 'flex',\n            flexDirection: 'column',\n            justifyContent: 'center',\n            alignItems: 'center',\n            margin: 'auto'\n        }, noValidate: true, autoComplete: \"off\" }, { children: [(0, jsx_runtime_1.jsx)(Typography_1.default, __assign({ variant: \"h4\", component: \"div\", sx: { flexGrow: 1 } }, { children: \"Log In\" }), void 0), (0, jsx_runtime_1.jsx)(TextField_1.default, { required: true, id: \"email\", label: \"E-mail\", variant: \"outlined\", value: email, onChange: function (e) { return setEmail(e.target.value); } }, void 0), (0, jsx_runtime_1.jsx)(TextField_1.default, { required: true, id: \"password\", label: \"Password\", variant: \"outlined\", value: password, onChange: function (e) { return setPassword(e.target.value); } }, void 0), (0, jsx_runtime_1.jsx)(Button_1.default, __assign({ color: \"inherit\", onClick: handleSubmit }, { children: \"LOG IN\" }), void 0), (0, jsx_runtime_1.jsx)(Typography_1.default, { children: \"Don't have an account? Sign Up\" }, void 0)] }), void 0));\n};\nexports[\"default\"] = LogInForm;\n\n\n//# sourceURL=webpack://lendingclub/./client/src/components/LogInForm.tsx?");
+
+/***/ }),
+
 /***/ "./client/src/components/SignUpForm.tsx":
 /*!**********************************************!*\
   !*** ./client/src/components/SignUpForm.tsx ***!
@@ -3234,10 +3245,10 @@ eval("\nvar __makeTemplateObject = (this && this.__makeTemplateObject) || functi
 /*!************************************!*\
   !*** ./client/src/pages/LogIn.tsx ***!
   \************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nvar LogIn = function () {\n    return ((0, jsx_runtime_1.jsx)(\"div\", { children: \"Log In\" }, void 0));\n};\nexports[\"default\"] = LogIn;\n\n\n//# sourceURL=webpack://lendingclub/./client/src/pages/LogIn.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nvar jsx_runtime_1 = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\nvar LogInForm_1 = __importDefault(__webpack_require__(/*! ../components/LogInForm */ \"./client/src/components/LogInForm.tsx\"));\nvar LogIn = function () {\n    return ((0, jsx_runtime_1.jsx)(LogInForm_1.default, {}, void 0));\n};\nexports[\"default\"] = LogIn;\n\n\n//# sourceURL=webpack://lendingclub/./client/src/pages/LogIn.tsx?");
 
 /***/ }),
 

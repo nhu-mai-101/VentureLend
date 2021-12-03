@@ -1,10 +1,9 @@
 import * as React from 'react';
+import LogInForm from '../components/LogInForm';
 
 const LogIn = () => {
   return (
-    <div>
-      Log In
-    </div>
+    <LogInForm />
   )
 }
 
