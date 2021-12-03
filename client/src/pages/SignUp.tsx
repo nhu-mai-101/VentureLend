@@ -1,10 +1,21 @@
 import * as React from 'react';
+import {useState}  from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
 const SignUp = () => {
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    console.log(firstName, lastName, email, password);
+  };
+
   return (
     <Box
       component="form"
@@ -31,26 +42,34 @@ const SignUp = () => {
         id="firstName"
         label="First Name"
         variant="outlined"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
       />
       <TextField
         required
         id="lastName"
         label="Last Name"
         variant="outlined"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
       />
       <TextField
         required
         id="email"
         label="E-mail"
         variant="outlined"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
         required
         id="password"
         label="Password"
         variant="outlined"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <Button color="inherit">
+      <Button color="inherit" onClick={handleSubmit}>
         SIGN UP
       </Button>
       <Typography>

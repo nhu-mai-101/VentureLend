@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import SignUp from '../pages/SignUp.tsx';
-import LogIn from '../pages/LogIn.tsx';
-import LandingPage from '../pages/Landing.tsx';
+import SignUp from '../pages/SignUp';
+import LogIn from '../pages/LogIn';
+import LandingPage from '../pages/Landing';
 import styled from 'styled-components';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
