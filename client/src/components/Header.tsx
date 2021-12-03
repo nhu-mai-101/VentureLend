@@ -28,15 +28,15 @@ const Header = () => {
                 <ActionButton color="inherit">Login</ActionButton>
               </Link>
           </StyledToolbar>
-            <Routes>
-              <Route path="/" element={<LandingPage />}>
-              </Route>
-              <Route path="/signup" element={<SignUp />}>
-              </Route>
-              <Route path="/login" element={<LogIn />}>
-              </Route>
-            </Routes>
         </AppBar>
+          <Routes>
+            <Route path="/" element={<LandingPage />}>
+            </Route>
+            <Route path="/signup" element={<SignUp />}>
+            </Route>
+            <Route path="/login" element={<LogIn />}>
+            </Route>
+          </Routes>
       </Box>
     </Router>
   )
