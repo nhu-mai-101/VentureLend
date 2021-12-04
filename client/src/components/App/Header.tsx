@@ -4,12 +4,14 @@ import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
 import LandingPage from '../Landing/Landing';
 import UserProfile from '../UserProfile/UserProfile';
+import LoanApplication from '../LoanApplication/LoanApplication'
 import styled from 'styled-components';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
 
 const Header = () => {
   return (
@@ -17,17 +19,12 @@ const Header = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <StyledToolbar >
-              <Link to="/">
-                <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>
-                  LendingClub
-                </Typography>
-              </Link>
-              <Link to="/signup">
-                <ActionButton color="inherit">Sign Up</ActionButton>
-              </Link>
-              <Link to="/login">
-                <ActionButton color="inherit">Login</ActionButton>
-              </Link>
+            <Avatar component={Link} to={'/'}>LC</Avatar>
+            <Typography variant="h3" sx={{ flexGrow: 1 }}>
+              LendingClub
+            </Typography>
+            <Button color="inherit" component={Link} to={'/signup'}>Sign Up</Button>
+            <Button color="inherit" component={Link} to={'/login'}>Login</Button>
           </StyledToolbar>
         </AppBar>
           <Routes>
@@ -38,6 +35,10 @@ const Header = () => {
             <Route path="/login" element={<LogIn />}>
             </Route>
             <Route path="/userprofile" element={<UserProfile />}>
+            </Route>
+            <Route path="/loanapp" element={<LoanApplication />}>
+            </Route>
+            <Route path="/invest" element={<LoanApplication />}>
             </Route>
           </Routes>
       </Box>
