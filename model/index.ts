@@ -1,10 +1,10 @@
-import {db} from '../db/index.js';
+import {db} from '../db/index';
 import {User} from '../types/users';
 import {Loans} from '../types/loans'
 
 export const model = {
   newUser: (callback: Function, body: User) => {
-    let qString = '';
+    let qString = `INSERT INTO users (first_name, last_name, email) VALUES ('${body.firstName}', '${body.lastName}', '${body.email}')`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {useState, useRef}  from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
 import {useAuth} from '../../contexts/AuthContext';
-import { Link, useNavigate } from "react-router-dom"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -23,9 +24,16 @@ const SignUpForm = () => {
     try {
       setError('');
       setLoading(true);
-      await signUp(emailRef.current.value, passwordRef.current.value)
+
+      await axios.post('http://localhost:3000/newUser', {
+        firstName: firstNameRef.current.value,
+        lastName: lastNameRef.current.value,
+        email: emailRef.current.value,
+      });
+
+      await signUp(emailRef.current.value, passwordRef.current.value);
       navigate('/userprofile');
-    } catch {
+    } catch (error) {
       setError("Failed to create an account")
     }
     setLoading(false)

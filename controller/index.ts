@@ -1,6 +1,5 @@
-import { model } from '../model/index.js';
+import { model } from '../model/index';
 import {Request, Response} from "express";
-
 
 export const controller = {
   newUser: (req: Request, res: Response) => {
