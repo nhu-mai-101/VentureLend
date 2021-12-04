@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
 import LandingPage from '../Landing/Landing';
+import UserProfile from '../UserProfile/UserProfile';
 import styled from 'styled-components';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -35,6 +36,8 @@ const Header = () => {
             <Route path="/signup" element={<SignUp />}>
             </Route>
             <Route path="/login" element={<LogIn />}>
+            </Route>
+            <Route path="/userprofile" element={<UserProfile />}>
             </Route>
           </Routes>
       </Box>
