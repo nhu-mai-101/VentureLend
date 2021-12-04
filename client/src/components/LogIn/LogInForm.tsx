@@ -1,17 +1,32 @@
 import * as React from 'react';
-import {useState}  from 'react';
+import {useState, useRef}  from 'react';
+import {useAuth} from '../../contexts/AuthContext';
+import { Link, useNavigate } from "react-router-dom"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
 
-const LogInForm = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+const SignUpForm = () => {
+  const emailRef = useRef<HTMLInputElement>(null!);
+  const passwordRef = useRef<HTMLInputElement>(null!);
+  const { logIn } = useAuth();
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
+  const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(email, password);
+    try {
+      setError('');
+      setLoading(true);
+      await logIn(emailRef.current.value, passwordRef.current.value)
+      navigate('/userprofile');
+    } catch {
+      setError("Failed to log into account")
+    }
+    setLoading(false)
   };
 
   return (
@@ -35,30 +50,29 @@ const LogInForm = () => {
       <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
         Log In
       </Typography>
+      {error && <Alert severity="error">{error}</Alert>}
       <TextField
         required
         id="email"
         label="E-mail"
         variant="outlined"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        inputRef={emailRef}
       />
       <TextField
         required
         id="password"
         label="Password"
         variant="outlined"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        inputRef={passwordRef}
       />
-      <Button color="inherit" onClick={handleSubmit}>
+      <Button color="inherit" onClick={handleSubmit} disabled={loading}>
         LOG IN
       </Button>
       <Typography>
-        Don't have an account? Sign Up
+        Don't have an account? <Link to="/signup">Sign Up</Link>
       </Typography>
     </Box>
   )
 }
 
-export default LogInForm;
+export default SignUpForm;
