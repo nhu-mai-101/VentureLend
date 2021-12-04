@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import { auth } from '../firebase';
 
 interface IAuthContext {
-  currentUser: string;
+  currentUser: any;
   signUp: any;
   logIn: any;
   logOut: any;
