@@ -1,4 +1,5 @@
-import express, {Request, Response, NextFunction} from 'express';
+import express, { Request, Response, NextFunction } from 'express';
+import { controller } from '../controller/index';
 require('dotenv').config();
 
 const app = express();
@@ -11,5 +12,14 @@ const logRequests = (req: Request, res: Response, next: NextFunction) => {
 
 app.use(logRequests);
 app.use(express.static('client/dist'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/newUser', controller.newUser);
+app.get('/currentLoans', controller.currentLoans);
+app.post('/newLoan', controller.newLoan);
+app.post('/newInvestment', controller.newInvestment);
+app.get('/currentInvestments', controller.currentInvestments);
+app.get('/availableInvestments', controller.availableInvestments);
 
 app.listen(port, () => {console.log(`Listening on port: ${port}`)});
