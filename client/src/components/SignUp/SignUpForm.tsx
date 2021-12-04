@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState, useRef}  from 'react';
 import {useAuth} from '../../contexts/AuthContext';
-import { Link, useHistory } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -16,7 +16,7 @@ const SignUpForm = () => {
   const { signUp } = useAuth();
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const SignUpForm = () => {
       setError('');
       setLoading(true);
       await signUp(emailRef.current.value, passwordRef.current.value)
-      history.push('/');
+      navigate('/userprofile');
     } catch {
       setError("Failed to create an account")
     }
