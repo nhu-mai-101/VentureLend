@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-const Invest = () => {
+const Loan = () => {
   return (
     <div>
-      Invest
+      Loan
     </div>
   )
 }
 
-export default Invest;
+export default Loan;
