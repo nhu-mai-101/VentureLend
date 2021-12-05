@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
-import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
 import LoanList from './LoanList'
+import LoanAppForm from '../LoanApplication/LoanAppForm';
+import AvailableInvestments from '../AvailableInvestments/AvailableInvestments';
 
 
 interface IUserInfo {
@@ -11,6 +11,12 @@ interface IUserInfo {
   firstName: String;
   lastName: String;
   email: String
+}
+
+const userContext = React.createContext<Partial<IUserInfo>>({});
+
+export const useUser = () => {
+  return useContext(userContext)
 }
 
 const UserProfile = () => {
@@ -54,25 +60,31 @@ const UserProfile = () => {
   }
 
   useEffect(() => {getUserInfo(currentUser.email)}, [])
-
   return (
     <div>
-      {/* {console.log('currentLoans:', currentLoans)} */}
-      <div>
-        Hello {userInfo.firstName}<br />
-        E-mail: {currentUser.email}
-      </div>
-      <div>
-        Current Loans:
-        <LoanList />
-        <Button component={Link} to={'/loanapp'}>Apply For a New Loan</Button>
-      </div>
-      <div>
-        Current Investments:
-        <Button component={Link} to={'/invest'}>Make a New Investment</Button>
-      </div>
+      <userContext.Provider value={userInfo}>
+        {/* {console.log('currentLoans:', currentLoans)} */}
+        <div>
+          Hello {userInfo.firstName}<br />
+          E-mail: {currentUser.email}
+        </div>
+        <div>
+          Current Loans:
+          <LoanList />
+          <LoanAppForm />
+        </div>
+        <div>
+          Current Investments:
+          <AvailableInvestments />
+        </div>
+      </userContext.Provider>
     </div>
   )
 }
 
 export default UserProfile;
+
+
+// import {useUser} from '../UserProfile/UserProfile';
+// const { userId } = useUser();
+// {console.log('asdfasdfsadfasdf:', userId)}
