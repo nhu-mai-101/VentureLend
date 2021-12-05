@@ -11,6 +11,15 @@ export const controller = {
       }
     }, req.body);
   },
+  getUser: (req: Request, res: Response) => {
+    model.getUser((error: Error, data: any) => {
+      if (error) {
+        res.status(500).send(error);
+      } else {
+        res.status(200).send(data);
+      }
+    }, req.query);
+  },
   currentLoans: (req: Request, res: Response) => {
     model.currentLoans((error: Error, data: any) => {
       if (error) {

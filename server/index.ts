@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/newUser', controller.newUser);
+app.get('/getUser', controller.getUser);
 app.get('/currentLoans', controller.currentLoans);
 app.post('/newLoan', controller.newLoan);
 app.post('/newInvestment', controller.newInvestment);

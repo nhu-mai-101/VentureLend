@@ -13,6 +13,16 @@ export const model = {
       }
     });
   },
+  getUser: (callback: Function, query: any) => {
+    let qString = `SELECT * FROM users WHERE EMAIL = '${query.email}'`;
+    db.query(qString, (error: Error, data) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
   currentLoans: (callback: Function) => {
     let qString = '';
     db.query(qString, (error: Error, data) => {
