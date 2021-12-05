@@ -15,20 +15,21 @@ const style = {
 };
 
 type Props = {
-  back:(e: React.SyntheticEvent) => void;
-  next:(e: React.SyntheticEvent) => void;
+  next: (e: React.SyntheticEvent) => void;
+  resetStep: () => void;
 }
 
-const StepOne = ({ back, next }: Props) => {
+const StepOne = ({ next, resetStep }: Props) => {
   const [open, setOpen] = React.useState(true);
 
-  const handleClose = (e: React.SyntheticEvent) => {
+  const handleClose = () => {
     setOpen(false);
-    back(e)
+    resetStep();
   }
 
   return (
     <div>
+      <Button onClick={next}>Apply for a new loan</Button>
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
