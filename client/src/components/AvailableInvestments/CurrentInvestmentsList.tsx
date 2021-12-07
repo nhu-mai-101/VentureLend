@@ -5,7 +5,7 @@ type Props = {
   loans: any;
 }
 
-const LoanList = ({loans}: Props) => {
+const CurrentInvestmentsList = ({loans}: Props) => {
   const columns: GridColDef[] = [
     { field: 'total', headerName: 'Total', type: 'number', width: 150 },
     { field: 'paid', headerName: 'Amount Paid', type: 'number', width: 150 },
@@ -28,4 +28,4 @@ const LoanList = ({loans}: Props) => {
   )
 }
 
-export default LoanList;
+export default CurrentInvestmentsList;

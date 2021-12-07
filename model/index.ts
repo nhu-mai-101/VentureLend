@@ -14,7 +14,7 @@ export const model = {
     });
   },
   getUser: (callback: Function, query: any) => {
-    let qString = `SELECT * FROM users WHERE EMAIL = '${query.email}'`;
+    let qString = `SELECT * FROM users WHERE email = '${query.email}'`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -23,8 +23,8 @@ export const model = {
       }
     });
   },
-  currentLoans: (callback: Function) => {
-    let qString = '';
+  currentLoans: (callback: Function, query: any) => {
+    let qString = `SELECT * FROM loans WHERE borrower = ${query.userId}`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -34,7 +34,7 @@ export const model = {
     });
   },
   newLoan: (callback: Function, body: Loans) => {
-    let qString = '';
+    let qString = `INSERT INTO loans (total, oustanding, apr, term, borrower) VALUES (${body.total}, ${body.total}, ${body.apr}, ${body.term}, ${body.borrower})`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -43,8 +43,8 @@ export const model = {
       }
     });
   },
-  newInvestment: (callback: Function, body: Loans) => {
-    let qString = '';
+  newInvestment: (callback: Function, body: any) => {
+    let qString = `UPDATE loans SET investor = ${body.userId} WHERE id = ${body.loanId}`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -53,8 +53,8 @@ export const model = {
       }
     });
   },
-  currentInvestments: (callback: Function) => {
-    let qString = '';
+  currentInvestments: (callback: Function, query: any) => {
+    let qString = `SELECT * FROM loans WHERE investor = ${query.userId}`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -63,8 +63,8 @@ export const model = {
       }
     });
   },
-  availableInvestments: (callback: Function) => {
-    let qString = '';
+  availableInvestments: (callback: Function, query: any) => {
+    let qString = `SELECT * FROM loans WHERE borrower != ${query.userId} AND investor IS NULL`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);

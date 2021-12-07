@@ -3,10 +3,11 @@ export interface LoansId {
 };
 
 export interface Loans extends LoansId {
-  userId: Number
   total: Number,
   paid: Number,
   outstanding: Number,
   apr: Number,
-  term: Number
+  term: Number,
+  borrower: Number,
+  investor: Number
 };

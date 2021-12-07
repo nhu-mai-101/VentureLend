@@ -1,7 +1,9 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
-import LoanList from './LoanList'
+import {Loans} from '../../../../types/loans';
+import LoanList from './LoanList';
+import CurrentInvestmentsList from '../AvailableInvestments/CurrentInvestmentsList';
 import LoanAppForm from '../LoanApplication/LoanAppForm';
 import AvailableInvestments from '../AvailableInvestments/AvailableInvestments';
 
@@ -21,14 +23,14 @@ export const useUser = () => {
 
 const UserProfile = () => {
   const { currentUser } = useAuth();
+  const [currentLoans, setCurrentLoans] = useState<Partial<Loans>>();
+  const [currentInvestments, setCurrentInvestments] = useState<Partial<Loans>>();
   const [userInfo, setUserInfo] = useState<Partial<IUserInfo>>({
     userId: undefined,
     firstName: '',
     lastName: '',
     email: ''
   });
-  // const [currentLoans, setCurrentLoans] = useState<any>();
-
 
   const getUserInfo = async (userEmail: string) => {
     try {
@@ -46,35 +48,60 @@ const UserProfile = () => {
           email: data.data[0].email
         });
       });
-      // await axios.get('http://localhost:3000/currentLoans', {
-      //   params: {
-      //     userId: userInfo.userId
-      //   }
-      // })
-      // .then((data) => {
-      //   setCurrentLoans(data)
-      // })
     } catch (error) {
       console.log(error);
     }
   }
 
-  useEffect(() => {getUserInfo(currentUser.email)}, [])
+  const getLoans = async () => {
+    try {
+      await axios.get('http://localhost:3000/currentLoans', {
+        params: {
+          userId: userInfo.userId
+        }
+      })
+      .then((data) => {
+        setCurrentLoans(data.data)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getInvestments = async () => {
+    try {
+      await axios.get('http://localhost:3000/currentInvestments', {
+        params: {
+          userId: userInfo.userId
+        }
+      })
+      .then((data) => {
+        setCurrentInvestments(data.data)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {getUserInfo(currentUser.email)}, []);
+  useEffect(() => {getLoans()}, [userInfo]);
+  useEffect(() => {getInvestments()}, [userInfo]);
+
   return (
     <div>
       <userContext.Provider value={userInfo}>
-        {/* {console.log('currentLoans:', currentLoans)} */}
         <div>
           Hello {userInfo.firstName}<br />
           E-mail: {currentUser.email}
         </div>
         <div>
           Current Loans:
-          <LoanList />
-          <LoanAppForm />
+          <LoanList loans={currentLoans}/>
+          <LoanAppForm getLoans={getLoans}/>
         </div>
         <div>
           Current Investments:
+          <CurrentInvestmentsList loans={currentInvestments}/>
           <AvailableInvestments />
         </div>
       </userContext.Provider>
@@ -83,8 +110,3 @@ const UserProfile = () => {
 }
 
 export default UserProfile;
-
-
-// import {useUser} from '../UserProfile/UserProfile';
-// const { userId } = useUser();
-// {console.log('asdfasdfsadfasdf:', userId)}
