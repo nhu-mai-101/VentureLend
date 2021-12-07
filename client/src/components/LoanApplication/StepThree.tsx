@@ -30,6 +30,7 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     setOpen(false);
     resetStep();
   }
@@ -53,14 +54,15 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
             required
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            name="loanTotal"
+            name="total"
             label="Amount"
             autoWidth
-            value={values.loanTotal}
+            value={values.total ?? 0}
             onChange={handleSelectChange}
           >
           {loanAmounts.map((amount) => (
             <MenuItem
+              key={amount}
               value={amount}
             >
               {amount}
@@ -77,11 +79,12 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
             name="apr"
             label="APR"
             autoWidth
-            value={values.apr}
+            value={values.apr ?? 0}
             onChange={handleSelectChange}
           >
           {loanRates.map((rate) => (
             <MenuItem
+              key={rate}
               value={rate}
             >
               {rate}
@@ -95,14 +98,15 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
             required
             labelId="demo-simple-select-label"
             id="demo-simple-select"
-            name="loanTerm"
+            name="term"
             label="Term (months)"
             autoWidth
-            value={values.loanTerm}
+            value={values.term ?? 0}
             onChange={handleSelectChange}
           >
           {loanTerms.map((term) => (
             <MenuItem
+              key={term}
               value={term}
             >
               {term}

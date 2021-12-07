@@ -27,6 +27,7 @@ const Confirmation = ({ back, next, resetStep, handleSubmit, values }: Props) =>
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     setOpen(false);
     resetStep();
   }
@@ -86,7 +87,7 @@ const Confirmation = ({ back, next, resetStep, handleSubmit, values }: Props) =>
             Loan Amount:
           </Typography>
           <Typography id="modal-modal-description" variant="body1">
-            {values.loanTotal}
+            {values.total}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="h6">
             APR:
@@ -98,7 +99,7 @@ const Confirmation = ({ back, next, resetStep, handleSubmit, values }: Props) =>
             Loan Term:
           </Typography>
           <Typography id="modal-modal-description" variant="body1">
-            {values.loanTerm}
+            {values.term}
           </Typography>
           <Button onClick={back}>Back</Button>
           <Button onClick={handleSubmit}>Submit</Button>

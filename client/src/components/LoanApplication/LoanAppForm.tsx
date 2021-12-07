@@ -3,8 +3,9 @@ import axios from 'axios';
 import StepOne from './StepOne';
 import StepTwo from './StepTwo';
 import StepThree from './StepThree';
-import  { useUser } from '../UserProfile/UserProfile';
 import Confirmation from './Confirmation';
+import Approval from './Approval';
+import  { useUser } from '../UserProfile/UserProfile';
 import { Button } from '@mui/material';
 import {SelectChangeEvent} from '@mui/material';
 
@@ -20,9 +21,9 @@ interface IFormInfo {
   creditScore: Number;
   rent: Number;
   userId: Number;
-  loanTotal: Number;
+  total: Number;
   apr: Number;
-  loanTerm: Number
+  term: Number
 }
 
 const LoanAppForm = () => {
@@ -40,9 +41,9 @@ const LoanAppForm = () => {
     creditScore: undefined,
     rent: undefined,
     userId: userId,
-    loanTotal: undefined,
+    total: undefined,
     apr: undefined,
-    loanTerm: undefined
+    term: undefined
   })
 
   const handleSelectChange = (event: SelectChangeEvent<unknown>) => {
@@ -65,14 +66,17 @@ const LoanAppForm = () => {
     e.preventDefault();
     try {
       await axios.post('http://localhost:3000/newLoan', {
-        userId: formInfo.userId,
-        loanTotal: formInfo.loanTotal,
+        total: formInfo.total,
         apr: formInfo.apr,
-        loanTerm: formInfo.loanTerm
+        term: formInfo.term,
+        borrower: formInfo.userId,
       });
+      console.log('post successful')
+      setFormStep(5);
     } catch (error) {
-      console.log(Error);
-  };
+      console.log(error);
+    };
+  }
 
   const resetStep = () => {
     setFormStep(0);
@@ -99,6 +103,9 @@ const LoanAppForm = () => {
   }
   if (formStep === 4) {
     return (<Confirmation back={back} next={next} resetStep={resetStep} handleSubmit={handleSubmit} values={formInfo}/>);
+  }
+  if (formStep === 5) {
+    return (<Approval next={next} resetStep={resetStep} values={formInfo}/>);
   }
   return (<div><Button onClick={next}>Apply for a new loan</Button></div>)
 }

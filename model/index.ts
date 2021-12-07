@@ -34,7 +34,7 @@ export const model = {
     });
   },
   newLoan: (callback: Function, body: Loans) => {
-    let qString = '';
+    let qString = `INSERT INTO loans (total, oustanding, apr, term, borrower) VALUES (${body.total}, ${body.total}, ${body.apr}, ${body.term}, ${body.borrower})`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);

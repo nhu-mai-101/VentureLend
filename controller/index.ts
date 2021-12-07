@@ -30,7 +30,7 @@ export const controller = {
     });
   },
   newLoan: (req: Request, res: Response) => {
-    model.newUser((error: Error, data: any) => {
+    model.newLoan((error: Error, data: any) => {
       if (error) {
         res.status(500).send(error);
       } else {

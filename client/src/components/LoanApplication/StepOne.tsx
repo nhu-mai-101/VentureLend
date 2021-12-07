@@ -28,7 +28,8 @@ type Props = {
 const StepOne = ({ next, resetStep, handleFormChange, handleSelectChange, values }: Props) => {
   const [open, setOpen] = React.useState(true);
 
-  const handleClose = () => {
+  const handleClose = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     setOpen(false);
     resetStep();
   }
@@ -94,11 +95,12 @@ const StepOne = ({ next, resetStep, handleFormChange, handleSelectChange, values
             name="state"
             label="State"
             autoWidth
-            value={values.state}
+            value={values.state ?? ''}
             onChange={handleSelectChange}
           >
             {states.map((state) => (
             <MenuItem
+              key={state}
               value={state}
             >
               {state}

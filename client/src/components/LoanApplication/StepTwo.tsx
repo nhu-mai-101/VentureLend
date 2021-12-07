@@ -26,6 +26,7 @@ const StepTwo = ({ back, next, resetStep, handleFormChange, values }: Props) => 
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     setOpen(false);
     resetStep();
   }
