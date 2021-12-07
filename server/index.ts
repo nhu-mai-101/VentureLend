@@ -19,7 +19,7 @@ app.post('/newUser', controller.newUser);
 app.get('/getUser', controller.getUser);
 app.get('/currentLoans', controller.currentLoans);
 app.post('/newLoan', controller.newLoan);
-app.post('/newInvestment', controller.newInvestment);
+app.put('/newInvestment', controller.newInvestment);
 app.get('/currentInvestments', controller.currentInvestments);
 app.get('/availableInvestments', controller.availableInvestments);
 
