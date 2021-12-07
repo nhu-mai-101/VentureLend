@@ -19,19 +19,9 @@ CREATE TABLE loans (
   oustanding DECIMAL(8,2),
   apr DECIMAL (4,3) NOT NULL,
   term INT NOT NULL,
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE user_loans (
-  user_id INT NOT NULL,
-  loan_id INT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (loan_id) REFERENCES loans(id)
-);
-
-CREATE TABLE user_investments (
-  user_id INT NOT NULL,
-  loan_id INT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (loan_id) REFERENCES loans(id)
+  borrower INT,
+  investor INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (borrower) REFERENCES users(id),
+  FOREIGN KEY (investor) REFERENCES users(id)
 );
