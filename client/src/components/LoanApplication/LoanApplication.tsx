@@ -5,7 +5,9 @@ const LoanApplication = () => {
   return (
     <div>
       Loan Application:
-      <LoanAppForm />
+      <LoanAppForm getLoans={function (): void {
+        throw new Error('Function not implemented.');
+      } } />
     </div>
   )
 }

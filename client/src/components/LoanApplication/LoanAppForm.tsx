@@ -26,7 +26,11 @@ interface IFormInfo {
   term: Number
 }
 
-const LoanAppForm = () => {
+type Props = {
+  getLoans: () => void;
+}
+
+const LoanAppForm = ({ getLoans }: Props) => {
   const [formStep, setFormStep] = React.useState(0);
   const { userId } = useUser();
   const [formInfo, setFormInfo] = React.useState<Partial<IFormInfo>>({
@@ -71,7 +75,6 @@ const LoanAppForm = () => {
         term: formInfo.term,
         borrower: formInfo.userId,
       });
-      console.log('post successful')
       setFormStep(5);
     } catch (error) {
       console.log(error);
@@ -105,7 +108,7 @@ const LoanAppForm = () => {
     return (<Confirmation back={back} next={next} resetStep={resetStep} handleSubmit={handleSubmit} values={formInfo}/>);
   }
   if (formStep === 5) {
-    return (<Approval next={next} resetStep={resetStep} values={formInfo}/>);
+    return (<Approval next={next} resetStep={resetStep} getLoans={getLoans} values={formInfo}/>);
   }
   return (<div><Button onClick={next}>Apply for a new loan</Button></div>)
 }

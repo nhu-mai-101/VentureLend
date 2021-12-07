@@ -17,15 +17,17 @@ const style = {
 type Props = {
   next: (e: React.SyntheticEvent) => void;
   resetStep: () => void;
+  getLoans: () => void;
   values: any;
 }
 
-const Approval = ({ next, resetStep, values }: Props) => {
+const Approval = ({ next, resetStep, getLoans, values }: Props) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (e: React.SyntheticEvent) => {
     setOpen(false);
     resetStep();
+    getLoans();
   }
 
   return (
