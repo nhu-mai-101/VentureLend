@@ -7,6 +7,7 @@ type Props = {
 
 const CurrentInvestmentsList = ({loans}: Props) => {
   const columns: GridColDef[] = [
+    { field: 'id', headerName: 'ID', type: 'number', width: 100 },
     { field: 'total', headerName: 'Total', type: 'number', width: 150 },
     { field: 'paid', headerName: 'Amount Paid', type: 'number', width: 150 },
     { field: 'oustanding', headerName: 'Amount Outstanding', type: 'number', width: 150 },
