@@ -102,7 +102,7 @@ const UserProfile = () => {
         <div>
           Current Investments:
           <CurrentInvestmentsList loans={currentInvestments}/>
-          <AvailableInvestments />
+          <AvailableInvestments getInvestments={getInvestments}/>
         </div>
       </userContext.Provider>
     </div>
