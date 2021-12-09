@@ -1,10 +1,18 @@
-import * as React from 'react';
+import styled from 'styled-components';
 import SignUpForm from './SignUpForm';
 
 const SignUp = () => {
   return (
-    <SignUpForm />
+    <Container>
+      <SignUpForm />
+    </Container>
   )
 }
 
 export default SignUp;
+
+const Container = styled.div`
+  margin: 50px;
+  padding: 50px;
+  height: 70vh;
+`;

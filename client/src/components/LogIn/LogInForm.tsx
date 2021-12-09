@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useState, useRef}  from 'react';
 import {useAuth} from '../../contexts/AuthContext';
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -24,14 +24,14 @@ const SignUpForm = () => {
       await logIn(emailRef.current.value, passwordRef.current.value)
       navigate('/userprofile');
     } catch {
-      setError("Failed to log into account")
+      setError('Failed to log into account')
     }
     setLoading(false)
   };
 
   return (
     <Box
-      component="form"
+      component='form'
       sx={{
         '& .MuiTextField-root': { m: 1, width: '90%' },
         width: '30vw',
@@ -42,34 +42,36 @@ const SignUpForm = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 'auto'
+        margin: 'auto',
+        padding: '15px'
       }}
       noValidate
-      autoComplete="off"
+      autoComplete='off'
     >
-      <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+      <Typography variant='h3' component='div' sx={{ flexGrow: 1, color: '#004d40'}}>
         Log In
       </Typography>
-      {error && <Alert severity="error">{error}</Alert>}
+      {error && <Alert severity='error'>{error}</Alert>}
       <TextField
         required
-        id="email"
-        label="E-mail"
-        variant="outlined"
+        id='email'
+        label='E-mail'
+        variant='outlined'
         inputRef={emailRef}
       />
       <TextField
         required
-        id="password"
-        label="Password"
-        variant="outlined"
+        id='password'
+        label='Password'
+        variant='outlined'
         inputRef={passwordRef}
+        type='password'
       />
-      <Button color="inherit" onClick={handleSubmit} disabled={loading}>
+      <Button sx={{color:'#004d40', fontSize: 25, margin: '10px', width: '150px', height: '45px'}} onClick={handleSubmit} disabled={loading}>
         LOG IN
       </Button>
       <Typography>
-        Don't have an account? <Link to="/signup">Sign Up</Link>
+        Don't have an account? <Link to='/signup'>Sign Up</Link>
       </Typography>
     </Box>
   )
