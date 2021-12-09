@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography, Modal, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { Box, Button, Typography, Modal, TextField, MenuItem } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
 const style = {
@@ -7,7 +7,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -18,7 +18,7 @@ type Props = {
   back: (e: React.SyntheticEvent) => void;
   next: (e: React.SyntheticEvent) => void;
   resetStep: () => void;
-  handleSelectChange: (event: SelectChangeEvent) => void;
+  handleFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   values: any;
 }
 
@@ -26,7 +26,7 @@ const loanAmounts = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000
 const loanRates = [2.49, 3.89, 4.29];
 const loanTerms = [12, 24, 36, 48, 60]
 
-const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props) => {
+const StepThree = ({ back, next, resetStep, handleFormChange, values }: Props) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (e: React.SyntheticEvent) => {
@@ -37,28 +37,30 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
 
   return (
     <div>
-      <Button onClick={next}>Apply for a new loan</Button>
+      <Button variant='contained' onClick={next}>Apply for a new loan</Button>
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
+        <Box component='form' sx={style}>
           <Close onClick={handleClose} />
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Step Three
+          <Typography id="modal-modal-title" variant="h5" component="h2" color='primary'>
+            Step Three - Loan Details
           </Typography>
-          How much woul you like to borrow?
           <br />
-          <Select
+          How much would you like to borrow?
+          <br />
+          <TextField
             required
-            labelId="demo-simple-select-label"
+            select
+            fullWidth
+            margin='normal'
             id="demo-simple-select"
             name="total"
             label="Amount"
-            autoWidth
             value={values.total ?? 0}
-            onChange={handleSelectChange}
+            onChange={handleFormChange}
           >
           {loanAmounts.map((amount) => (
             <MenuItem
@@ -68,19 +70,20 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
               {amount}
             </MenuItem>
           ))}
-          </Select>
+          </TextField>
           <br />
           What Annual Percentage Rate would you like?
           <br />
-          <Select
+          <TextField
             required
-            labelId="demo-simple-select-label"
+            select
+            fullWidth
+            margin='normal'
             id="demo-simple-select"
             name="apr"
             label="APR"
-            autoWidth
             value={values.apr ?? 0}
-            onChange={handleSelectChange}
+            onChange={handleFormChange}
           >
           {loanRates.map((rate) => (
             <MenuItem
@@ -90,19 +93,20 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
               {rate}
             </MenuItem>
           ))}
-          </Select>
+          </TextField>
           <br />
           How long would you like to repay the loan?
           <br />
-          <Select
+          <TextField
             required
-            labelId="demo-simple-select-label"
+            select
+            fullWidth
+            margin='normal'
             id="demo-simple-select"
             name="term"
             label="Term (months)"
-            autoWidth
             value={values.term ?? 0}
-            onChange={handleSelectChange}
+            onChange={handleFormChange}
           >
           {loanTerms.map((term) => (
             <MenuItem
@@ -112,9 +116,9 @@ const StepThree = ({ back, next, resetStep, handleSelectChange, values }: Props)
               {term}
             </MenuItem>
           ))}
-          </Select>
-          <Button onClick={back}>Back</Button>
-          <Button onClick={next}>Review</Button>
+          </TextField>
+          <Button variant='contained' onClick={back}>Back</Button>
+          <Button variant='contained' onClick={next}>Review</Button>
         </Box>
       </Modal>
     </div>

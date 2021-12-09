@@ -7,7 +7,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -33,62 +33,71 @@ const StepTwo = ({ back, next, resetStep, handleFormChange, values }: Props) => 
 
   return (
     <div>
-      <Button onClick={next}>Apply for a new loan</Button>
+      <Button variant='contained' onClick={next}>Apply for a new loan</Button>
       <Modal
         open={open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box component='form' sx={style}>
           <Close onClick={handleClose} />
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id='modal-modal-title' variant='h5' component='h2' color='primary'>
             Step Two - Financial Information
           </Typography>
+          <br />
           What is your occupation?
           <TextField
             required
-            id="occupation"
-            name="occupation"
-            label="Occupation"
-            variant="outlined"
+            fullWidth
+            margin='normal'
+            id='occupation'
+            name='occupation'
+            label='Occupation'
+            variant='outlined'
             onChange={handleFormChange}
           />
           <br />
           What is your Annual Gross (before taxes) Income?
           <TextField
             required
-            id="income"
-            name="income"
-            label="Income"
-            variant="outlined"
-            type="number"
+            fullWidth
+            margin='normal'
+            id='income'
+            name='income'
+            label='Income'
+            variant='outlined'
+            type='number'
             onChange={handleFormChange}
           />
           <br />
           What is your Credit Score? (Experian or TransUnion)
           <TextField
             required
-            id="creditScore"
-            name="creditScore"
-            label="Credit Score"
-            variant="outlined"
-            type="number"
+            fullWidth
+            margin='normal'
+            id='creditScore'
+            name='creditScore'
+            label='Credit Score'
+            variant='outlined'
+            type='number'
             onChange={handleFormChange}
           />
           <br />
           How much do you pay for rent each month?
           <TextField
             required
-            id="rent"
-            name="rent"
-            label="Rent"
-            variant="outlined"
-            type="number"
+            fullWidth
+            margin='normal'
+            id='rent'
+            name='rent'
+            label='Rent'
+            variant='outlined'
+            type='number'
             onChange={handleFormChange}
           />
           <br />
-          <Button onClick={back}>Back</Button>
-          <Button onClick={next}>Next</Button>
+          <Button variant='contained' onClick={back}>Back</Button>
+          <Button variant='contained' onClick={next}>Next</Button>
         </Box>
       </Modal>
     </div>

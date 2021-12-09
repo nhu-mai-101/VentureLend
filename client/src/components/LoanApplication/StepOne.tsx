@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Typography, Modal, TextField, Select, MenuItem, SelectChangeEvent} from '@mui/material';
+import { Box, Button, Typography, Modal, TextField, MenuItem } from '@mui/material';
 import { Close } from '@mui/icons-material';
 
 const style = {
@@ -7,7 +7,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 500,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -21,11 +21,10 @@ type Props = {
   next: (e: React.SyntheticEvent) => void;
   resetStep: () => void;
   handleFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSelectChange: (event: SelectChangeEvent) => void;
   values: any;
 }
 
-const StepOne = ({ next, resetStep, handleFormChange, handleSelectChange, values }: Props) => {
+const StepOne = ({ next, resetStep, handleFormChange, values }: Props) => {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = (e: React.SyntheticEvent) => {
@@ -36,34 +35,40 @@ const StepOne = ({ next, resetStep, handleFormChange, handleSelectChange, values
 
   return (
     <div>
-      <Button onClick={next}>Apply for a new loan</Button>
+      <Button variant='contained' onClick={next}>Apply for a new loan</Button>
       <Modal
         open={open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
       >
-        <Box sx={style}>
+        <Box component='form' sx={style}>
           <Close onClick={handleClose} />
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+          <Typography id='modal-modal-title' variant='h5' component='h2' color='primary'>
             Step One - Personal Information
           </Typography>
+          <br />
           What is your name?
           <br />
           <TextField
             required
-            id="firstName"
-            name="firstName"
-            label="First Name"
-            variant="outlined"
+            fullWidth
+            margin='normal'
+            id='firstName'
+            name='firstName'
+            label='First Name'
+            variant='outlined'
             value={values.firstName}
             onChange={handleFormChange}
           />
+          <br />
           <TextField
             required
-            id="lastName"
-            name="lastName"
-            label="Last Name"
-            variant="outlined"
+            fullWidth
+            margin='normal'
+            id='lastName'
+            name='lastName'
+            label='Last Name'
+            variant='outlined'
             value={values.lastName}
             onChange={handleFormChange}
           />
@@ -72,31 +77,37 @@ const StepOne = ({ next, resetStep, handleFormChange, handleSelectChange, values
           <br />
           <TextField
             required
-            id="address"
-            name="address"
-            label="Address"
-            variant="outlined"
+            fullWidth
+            margin='normal'
+            id='address'
+            name='address'
+            label='Address'
+            variant='outlined'
             value={values.address}
+            onChange={handleFormChange}
+          />
+          <br />
+          <TextField
+            required
+            fullWidth
+            margin='normal'
+            id='city'
+            name='city'
+            label='City'
+            variant='outlined'
+            value={values.city}
             onChange={handleFormChange}
           />
           <TextField
             required
-            id="city"
-            name="city"
-            label="City"
-            variant="outlined"
-            value={values.city}
-            onChange={handleFormChange}
-          />
-          <Select
-            required
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            name="state"
-            label="State"
-            autoWidth
+            select
+            fullWidth
+            margin='normal'
+            id='state'
+            name='state'
+            label='State'
             value={values.state ?? ''}
-            onChange={handleSelectChange}
+            onChange={handleFormChange}
           >
             {states.map((state) => (
             <MenuItem
@@ -106,19 +117,21 @@ const StepOne = ({ next, resetStep, handleFormChange, handleSelectChange, values
               {state}
             </MenuItem>
             ))}
-          </Select>
+          </TextField>
           <TextField
             required
-            id="zipCode"
-            name="zipCode"
-            label="Zip Code"
-            variant="outlined"
+            fullWidth
+            margin='normal'
+            id='zipCode'
+            name='zipCode'
+            label='Zip Code'
+            variant='outlined'
             value={values.zipCode}
             onChange={handleFormChange}
           />
           <br />
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={next}>Next</Button>
+          <Button variant='contained' onClick={handleClose}>Cancel</Button>
+          <Button variant='contained' onClick={next}>Next</Button>
         </Box>
       </Modal>
     </div>

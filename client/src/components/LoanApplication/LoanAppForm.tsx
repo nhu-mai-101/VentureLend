@@ -96,13 +96,13 @@ const LoanAppForm = ({ getLoans }: Props) => {
   }
 
   if (formStep === 1) {
-    return (<StepOne next={next} resetStep={resetStep} handleFormChange={handleFormChange} handleSelectChange={handleSelectChange}values={formInfo} />);
+    return (<StepOne next={next} resetStep={resetStep} handleFormChange={handleFormChange} values={formInfo} />);
   }
   if (formStep === 2) {
     return (<StepTwo back={back} next={next} resetStep={resetStep} handleFormChange={handleFormChange} values={formInfo} />);
   }
   if (formStep === 3) {
-    return (<StepThree back={back} next={next} resetStep={resetStep} handleSelectChange={handleSelectChange} values={formInfo} />);
+    return (<StepThree back={back} next={next} resetStep={resetStep} handleFormChange={handleFormChange} values={formInfo} />);
   }
   if (formStep === 4) {
     return (<Confirmation back={back} next={next} resetStep={resetStep} handleSubmit={handleSubmit} values={formInfo}/>);

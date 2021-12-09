@@ -32,36 +32,36 @@ const Approval = ({ next, resetStep, getLoans, values }: Props) => {
 
   return (
     <div>
-      <Button onClick={next}>Apply for a new loan</Button>
+      <Button variant='contained' onClick={next}>Apply for a new loan</Button>
       <Modal
         open={open}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
       >
         <Box sx={style}>
           <Close onClick={handleClose} />
-          <Typography id="modal-modal-title" variant="h5" component="h2">
+          <Typography id='modal-modal-title' variant='h5' component='h2'  color='primary'>
             Congratulations {values.firstName}! You have been approved for your loan:
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="h6">
+          <Typography id='modal-modal-description' sx={{ mt: 2 }} variant='h6'>
             Loan Amount:
           </Typography>
-          <Typography id="modal-modal-description" variant="body1">
+          <Typography id='modal-modal-description' variant='body1'>
             {values.total}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="h6">
+          <Typography id='modal-modal-description' sx={{ mt: 2 }} variant='h6'>
             APR:
           </Typography>
-          <Typography id="modal-modal-description" variant="body1">
+          <Typography id='modal-modal-description' variant='body1'>
             {values.apr}
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }} variant="h6">
+          <Typography id='modal-modal-description' sx={{ mt: 2 }} variant='h6'>
             Loan Term:
           </Typography>
-          <Typography id="modal-modal-description" variant="body1">
+          <Typography id='modal-modal-description' variant='body1'>
             {values.term}
           </Typography>
-          <Button onClick={handleClose}>Finish</Button>
+          <Button variant='contained' onClick={handleClose}>Finish</Button>
         </Box>
       </Modal>
     </div>
