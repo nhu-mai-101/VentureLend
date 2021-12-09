@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import {AppBar, Box, Toolbar, Typography, Button, Avatar} from '@mui/material';
+import {AppBar, Box, Toolbar, Typography, Button } from '@mui/material';
 import styled from 'styled-components';
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
@@ -14,15 +14,14 @@ const Header = () => {
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position='static'>
             <StyledToolbar >
-              <Avatar component={Link} to={'/'}>LC</Avatar>
-              <Typography variant='h2' sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 4 }}>
+              <Typography variant='h2' component={Link} to={'/'} sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 2, color: 'white', textDecoration: 'none' }}>
                 LendingClub
               </Typography>
               <NavLinks to='/'>About Us</NavLinks>
               <NavLinks to='/'>Our Services</NavLinks>
               <NavLinks to='/'>FAQ</NavLinks>
-              <Button sx={{color:"inherit", fontSize: 20, border: '1px solid white', margin: '10px', width: '150px', height: '45px'}} component={Link} to={'/signup'}>Sign Up</Button>
-              <Button sx={{color:"inherit", fontSize: 20, border:'1px solid white', margin: '10px', width: '150px', height: '45px'}} component={Link} to={'/login'}>Login</Button>
+              <Button sx={{color:"inherit", fontSize: 25, border: '1px solid white', margin: '10px', width: '150px', height: '45px'}} component={Link} to={'/signup'}>Sign Up</Button>
+              <Button sx={{color:"inherit", fontSize: 25, border:'1px solid white', margin: '10px', width: '150px', height: '45px'}} component={Link} to={'/login'}>Login</Button>
             </StyledToolbar>
           </AppBar>
         </Box>
@@ -52,7 +51,7 @@ const StyledToolbar = styled(Toolbar)`
 
 const NavLinks = styled(Link)`
   margin: 20px;
-  font-size: 25px;
+  font-size: 20px;
   color: white;
   text-decoration: none;
   &:focus, &:hover, &:visited, &:link, &:active {
