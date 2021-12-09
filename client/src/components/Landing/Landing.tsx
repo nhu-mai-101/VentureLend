@@ -1,22 +1,23 @@
-import * as React from 'react';
 import styled from 'styled-components';
 import { Button, Typography } from '@mui/material';
 import BorrowInvestCards from './BorrowInvestCards';
+import GetStarted from './GetStarted'
 
 
 const LandingPage = () => {
   return (
     <div>
       <Background>
-        <ActionButton variant="contained">Borrow</ActionButton>
-        <ActionButton variant="contained">Invest</ActionButton>
+        <ActionButton variant="contained" href='#borrow'>Borrow</ActionButton>
+        <ActionButton variant="contained" href='#invest'>Invest</ActionButton>
       </Background>
       <div>
-        <Typography variant='h3' sx={{fontStyle: 'oblique', fontWeight: 'bold', letterSpacing: 6, textAlign: 'center', padding: 10}}>
+        <Typography variant='h3' color="primary" sx={{fontStyle: 'oblique', fontWeight: 'bold', letterSpacing: 6, textAlign: 'center', padding: 10, width: '75vw', margin: 'auto'}}>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel tellus id nibh imperdiet mollis ut sit amet ante."
         </Typography>
       </div>
       <BorrowInvestCards />
+      <GetStarted />
     </div>
   )
 }

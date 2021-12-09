@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {AppBar, Box, Toolbar, Typography, Button } from '@mui/material';
 import styled from 'styled-components';
 import SignUp from '../SignUp/SignUp';

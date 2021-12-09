@@ -7,13 +7,13 @@ const Footer = () => {
     <footer>
       <Box>
         <AppBar position='static' >
-          <Grid container spacing={5} sx={{ p: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start' }}>
-          <Grid item xs={3} padding={5}>
+          <Grid container spacing={2} sx={{ p: '100px', justifyContent: 'center', alignItems: 'flex-start', margin: 0}}>
+          <Grid item xs={3}>
             <Box>
               <Typography variant='h4' sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 2 }}>
                 LendingClub
               </Typography>
-            <Box py={5}>Maecenas odio sem, imperdiet non viverra sed, venenatis sed massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Box>
+            <Box py={3}>Maecenas odio sem, imperdiet non viverra sed, venenatis sed massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Box>
             </Box>
             <Box>
               <Instagram />
@@ -22,7 +22,7 @@ const Footer = () => {
               <LinkedIn />
             </Box>
           </Grid>
-          <Grid item padding={5}>
+          <Grid item xs={3}>
             <Box borderBottom={1} fontSize='20px'>Help</Box>
             <Box>
               <NavLinks href='/'>Email</NavLinks>
@@ -34,7 +34,7 @@ const Footer = () => {
               <NavLinks href='/'>Address</NavLinks>
             </Box>
           </Grid>
-          <Grid item padding={5}>
+          <Grid item xs={3}>
             <Box borderBottom={1} fontSize='20px'>Company</Box>
             <Box>
               <NavLinks href='/'>About Us</NavLinks>
@@ -49,7 +49,7 @@ const Footer = () => {
               <NavLinks href='/'>Blog</NavLinks>
             </Box>
           </Grid>
-          <Grid item padding={3}>
+          <Grid item xs={3}>
             <Box borderBottom={1} fontSize='20px'>Legal</Box>
             <Box>
               <NavLinks href='/'>Privacy Policy</NavLinks>
