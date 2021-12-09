@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState, useRef}  from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {useAuth} from '../../contexts/AuthContext';
 import Button from '@mui/material/Button';
@@ -34,14 +34,14 @@ const SignUpForm = () => {
       await signUp(emailRef.current.value, passwordRef.current.value);
       navigate('/userprofile');
     } catch (error) {
-      setError("Failed to create an account")
+      setError('Failed to create an account')
     }
     setLoading(false)
   };
 
   return (
     <Box
-      component="form"
+      component='form'
       sx={{
         '& .MuiTextField-root': { m: 1, width: '90%' },
         width: '30vw',
@@ -52,48 +52,50 @@ const SignUpForm = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: 'auto'
+        margin: 'auto',
+        padding: '15px'
       }}
       noValidate
-      autoComplete="off"
+      autoComplete='off'
     >
-      <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+      <Typography variant='h3' component='div' sx={{ flexGrow: 1, color: '#004d40' }}>
         Sign Up
       </Typography>
-      {error && <Alert severity="error">{error}</Alert>}
+      {error && <Alert severity='error'>{error}</Alert>}
       <TextField
         required
-        id="firstName"
-        label="First Name"
-        variant="outlined"
+        id='firstName'
+        label='First Name'
+        variant='outlined'
         inputRef={firstNameRef}
       />
       <TextField
         required
-        id="lastName"
-        label="Last Name"
-        variant="outlined"
+        id='lastName'
+        label='Last Name'
+        variant='outlined'
         inputRef={lastNameRef}
       />
       <TextField
         required
-        id="email"
-        label="E-mail"
-        variant="outlined"
+        id='email'
+        label='E-mail'
+        variant='outlined'
         inputRef={emailRef}
       />
       <TextField
         required
-        id="password"
-        label="Password"
-        variant="outlined"
+        id='password'
+        label='Password'
+        variant='outlined'
         inputRef={passwordRef}
+        type='password'
       />
-      <Button color="inherit" onClick={handleSubmit} disabled={loading}>
+      <Button sx={{color:"#004d40", fontSize: 25, margin: '10px', width: '150px', height: '45px'}} onClick={handleSubmit} disabled={loading}>
         SIGN UP
       </Button>
       <Typography>
-        Already have an account? <Link to="/login">Log In</Link>
+        Already have an account? <Link to='/login'>Log In</Link>
       </Typography>
     </Box>
   )
