@@ -1,4 +1,3 @@
-import * as React from 'react';
 import LoanAppForm from './LoanAppForm'
 
 const LoanApplication = () => {
