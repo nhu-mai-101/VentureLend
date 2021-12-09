@@ -110,7 +110,7 @@ const LoanAppForm = ({ getLoans }: Props) => {
   if (formStep === 5) {
     return (<Approval next={next} resetStep={resetStep} getLoans={getLoans} values={formInfo}/>);
   }
-  return (<div><Button onClick={next}>Apply for a new loan</Button></div>)
+  return (<div><Button variant='contained' onClick={next}>Apply for a new loan</Button></div>)
 }
 
 export default LoanAppForm;

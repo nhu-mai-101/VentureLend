@@ -79,7 +79,7 @@ const AvailableInvestments = ({ getInvestments }: Props) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Make a new investment</Button>
+      <Button variant='contained' onClick={handleOpen}>Make a new investment</Button>
       <Modal
         open={open}
         onClose={handleClose}

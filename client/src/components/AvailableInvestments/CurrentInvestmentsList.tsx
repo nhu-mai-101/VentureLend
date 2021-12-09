@@ -8,11 +8,9 @@ type Props = {
 const CurrentInvestmentsList = ({loans}: Props) => {
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', type: 'number', width: 100 },
-    { field: 'total', headerName: 'Total', type: 'number', width: 150 },
-    { field: 'paid', headerName: 'Amount Paid', type: 'number', width: 150 },
-    { field: 'oustanding', headerName: 'Amount Outstanding', type: 'number', width: 150 },
-    { field: 'apr', headerName: 'APR', type: 'number', width: 150 },
-    { field: 'term', headerName: 'Loan Term', type: 'number', width: 150 },
+    { field: 'total', headerName: 'Amount', type: 'number', width: 100 },
+    { field: 'apr', headerName: 'APR', type: 'number', width: 100 },
+    { field: 'term', headerName: 'Loan Term', type: 'number', width: 100 },
   ];
 
   return (
@@ -20,9 +18,8 @@ const CurrentInvestmentsList = ({loans}: Props) => {
       <DataGrid
         rows={loans}
         columns={columns}
-        pageSize={5}
-        rowsPerPageOptions={[5]}
-        autoHeight={true}
+        pageSize={10}
+        rowsPerPageOptions={[10, 50, 100]}
         disableSelectionOnClick={true}
       />
     </div>

@@ -1,6 +1,8 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {useAuth} from '../../contexts/AuthContext';
 import axios from 'axios';
+import styled from 'styled-components';
+import { Card, CardContent, Typography} from '@mui/material';
+import {useAuth} from '../../contexts/AuthContext';
 import {Loans} from '../../../../types/loans';
 import LoanList from './LoanList';
 import CurrentInvestmentsList from '../AvailableInvestments/CurrentInvestmentsList';
@@ -88,25 +90,58 @@ const UserProfile = () => {
   useEffect(() => {getInvestments()}, [userInfo]);
 
   return (
-    <div>
+    <Container>
       <userContext.Provider value={userInfo}>
-        <div>
-          Hello {userInfo.firstName}<br />
-          E-mail: {currentUser.email}
-        </div>
-        <div>
-          Current Loans:
-          <LoanList loans={currentLoans}/>
-          <LoanAppForm getLoans={getLoans}/>
-        </div>
-        <div>
-          Current Investments:
-          <CurrentInvestmentsList loans={currentInvestments}/>
-          <AvailableInvestments getInvestments={getInvestments}/>
-        </div>
+        <Cards>
+          <CardContent>
+            <Typography variant='h4' color='primary'>Hello {userInfo.firstName}!</Typography>
+            <br />
+            E-mail: {currentUser.email}
+          </CardContent>
+        </Cards>
+        <Cards>
+          <CardContent>
+            <Heading>
+              <Typography variant='h4' color='primary'>Current Loans:</Typography>
+              <LoanAppForm getLoans={getLoans}/>
+            </Heading>
+            <LoanList loans={currentLoans}/>
+          </CardContent>
+        </Cards>
+        <Cards>
+          <CardContent>
+            <Heading>
+              <Typography variant='h4' color='primary'>Current Investments:</Typography>
+              <AvailableInvestments getInvestments={getInvestments}/>
+            </Heading>
+            <CurrentInvestmentsList loans={currentInvestments}/>
+          </CardContent>
+        </Cards>
       </userContext.Provider>
-    </div>
+    </Container>
   )
 }
 
 export default UserProfile;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  row-gap: 15px;
+  padding: 30px;
+`;
+
+const Cards = styled(Card)`
+  width: 800px;
+  border: 1px solid grey;
+  margin: auto;
+`;
+
+const Heading = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+`;
