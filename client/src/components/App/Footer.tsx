@@ -1,4 +1,5 @@
-import {  AppBar, Grid, Box, Link } from '@mui/material';
+import {  AppBar, Grid, Box, Link, Typography } from '@mui/material';
+import { Instagram, Twitter, Facebook, LinkedIn } from '@mui/icons-material';
 import styled from 'styled-components';
 
 const Footer = () => {
@@ -6,17 +7,22 @@ const Footer = () => {
     <footer>
       <Box>
         <AppBar position='static' >
-          <Grid container spacing={5} sx={{ p: 10, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-start' }}>
-          <Grid item xs={3} padding={5}>
-            <Box>Logo</Box>
+          <Grid container spacing={2} sx={{ p: '100px', justifyContent: 'center', alignItems: 'flex-start', margin: 0}}>
+          <Grid item xs={3}>
             <Box>
-              LendingClub
+              <Typography variant='h4' sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 2 }}>
+                LendingClub
+              </Typography>
+            <Box py={3}>Maecenas odio sem, imperdiet non viverra sed, venenatis sed massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Box>
             </Box>
             <Box>
-              Social Media Icons
+              <Instagram />
+              <Facebook />
+              <Twitter />
+              <LinkedIn />
             </Box>
           </Grid>
-          <Grid item padding={5}>
+          <Grid item xs={3}>
             <Box borderBottom={1} fontSize='20px'>Help</Box>
             <Box>
               <NavLinks href='/'>Email</NavLinks>
@@ -28,7 +34,7 @@ const Footer = () => {
               <NavLinks href='/'>Address</NavLinks>
             </Box>
           </Grid>
-          <Grid item padding={5}>
+          <Grid item xs={3}>
             <Box borderBottom={1} fontSize='20px'>Company</Box>
             <Box>
               <NavLinks href='/'>About Us</NavLinks>
@@ -43,7 +49,7 @@ const Footer = () => {
               <NavLinks href='/'>Blog</NavLinks>
             </Box>
           </Grid>
-          <Grid item padding={5}>
+          <Grid item xs={3}>
             <Box borderBottom={1} fontSize='20px'>Legal</Box>
             <Box>
               <NavLinks href='/'>Privacy Policy</NavLinks>
@@ -69,7 +75,7 @@ export default Footer;
 
 const NavLinks = styled(Link)`
   padding: 5px;
-  font-size: 20px;
+  font-size: 17px;
   color: white;
   text-decoration: none;
   &:focus, &:hover, &:visited, &:link, &:active {
