@@ -11,7 +11,7 @@ const Footer = () => {
           <Grid item xs={3}>
             <Box>
               <Typography variant='h4' sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 2 }}>
-                LendingClub
+                VentureLend
               </Typography>
             <Box py={3}>Maecenas odio sem, imperdiet non viverra sed, venenatis sed massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Box>
             </Box>

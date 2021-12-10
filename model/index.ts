@@ -6,6 +6,7 @@ export const model = {
   newUser: (callback: Function, body: User) => {
     let qString = `INSERT INTO users (first_name, last_name, email) VALUES ('${body.firstName}', '${body.lastName}', '${body.email}')`;
     db.query(qString, (error: Error, data) => {
+      console.log('asdfsdf', typeof data)
       if (error) {
         callback(error, null);
       } else {
@@ -13,8 +14,8 @@ export const model = {
       }
     });
   },
-  getUser: (callback: Function, query: any) => {
-    let qString = `SELECT * FROM users WHERE email = '${query.email}'`;
+  getUser: (callback: Function, email: string) => {
+    let qString = `SELECT * FROM users WHERE email = '${email}'`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -23,8 +24,8 @@ export const model = {
       }
     });
   },
-  currentLoans: (callback: Function, query: any) => {
-    let qString = `SELECT * FROM loans WHERE borrower = ${query.userId}`;
+  currentLoans: (callback: Function, userId: string) => {
+    let qString = `SELECT * FROM loans WHERE borrower = ${userId}`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -43,8 +44,8 @@ export const model = {
       }
     });
   },
-  newInvestment: (callback: Function, body: any) => {
-    let qString = `UPDATE loans SET investor = ${body.userId} WHERE id = ${body.loanId}`;
+  newInvestment: (callback: (Function), { userId, loanId }: { userId: number, loanId: number }) => {
+    let qString = `UPDATE loans SET investor = ${userId} WHERE id = ${loanId}`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -53,8 +54,8 @@ export const model = {
       }
     });
   },
-  currentInvestments: (callback: Function, query: any) => {
-    let qString = `SELECT * FROM loans WHERE investor = ${query.userId}`;
+  currentInvestments: (callback: Function, userId: string) => {
+    let qString = `SELECT * FROM loans WHERE investor = ${userId}`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);
@@ -63,8 +64,8 @@ export const model = {
       }
     });
   },
-  availableInvestments: (callback: Function, query: any) => {
-    let qString = `SELECT * FROM loans WHERE borrower != ${query.userId} AND investor IS NULL`;
+  availableInvestments: (callback: Function, userId: string) => {
+    let qString = `SELECT * FROM loans WHERE borrower != ${userId} AND investor IS NULL`;
     db.query(qString, (error: Error, data) => {
       if (error) {
         callback(error, null);

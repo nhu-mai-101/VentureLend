@@ -18,7 +18,7 @@ export const controller = {
       } else {
         res.status(200).send(data);
       }
-    }, req.query);
+    }, req.query.email as string);
   },
   currentLoans: (req: Request, res: Response) => {
     model.currentLoans((error: Error, data: any) => {
@@ -27,7 +27,7 @@ export const controller = {
       } else {
         res.status(200).send(data);
       }
-    }, req.query);
+    }, req.query.userId as string);
   },
   newLoan: (req: Request, res: Response) => {
     model.newLoan((error: Error, data: any) => {
@@ -54,7 +54,7 @@ export const controller = {
       } else {
         res.status(200).send(data);
       }
-    }, req.query);
+    }, req.query.userId as string);
   },
   availableInvestments: (req: Request, res: Response) => {
     model.availableInvestments((error: Error, data: any) => {
@@ -63,6 +63,6 @@ export const controller = {
       } else {
         res.status(200).send(data);
       }
-    }, req.query);
+    }, req.query.userId as string);
   },
 }
