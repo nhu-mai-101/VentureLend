@@ -35,7 +35,7 @@ const UserProfile = () => {
 
   const getUserInfo = async (userEmail: string) => {
     try {
-      await axios.get('http://localhost:3000/getUser', {
+      await axios.get('/getUser', {
         params: {
           email: userEmail
         }
@@ -56,7 +56,7 @@ const UserProfile = () => {
 
   const getLoans = async () => {
     try {
-      await axios.get('http://localhost:3000/currentLoans', {
+      await axios.get('/currentLoans', {
         params: {
           userId: userInfo.userId
         }
@@ -71,7 +71,7 @@ const UserProfile = () => {
 
   const getInvestments = async () => {
     try {
-      await axios.get('http://localhost:3000/currentInvestments', {
+      await axios.get('/currentInvestments', {
         params: {
           userId: userInfo.userId
         }

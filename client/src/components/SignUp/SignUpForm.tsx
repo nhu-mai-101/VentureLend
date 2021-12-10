@@ -21,7 +21,7 @@ const SignUpForm = () => {
       setError('');
       setLoading(true);
 
-      await axios.post('http://localhost:3000/newUser', {
+      await axios.post('/newUser', {
         firstName: firstNameRef.current.value,
         lastName: lastNameRef.current.value,
         email: emailRef.current.value,

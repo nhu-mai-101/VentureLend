@@ -60,7 +60,7 @@ const LoanAppForm = ({ getLoans }: Props) => {
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/newLoan', {
+      await axios.post('/newLoan', {
         total: formInfo.total,
         apr: formInfo.apr,
         term: formInfo.term,

@@ -32,7 +32,7 @@ const AvailableInvestments = ({ getInvestments }: Props) => {
 
   const getAvailableInvestments = async () => {
     try {
-      await axios.get('http://localhost:3000/availableInvestments', {
+      await axios.get('/availableInvestments', {
         params: {
           userId: userId
         }
@@ -51,7 +51,7 @@ const AvailableInvestments = ({ getInvestments }: Props) => {
 
   const newInvestment = async () => {
     try {
-      await axios.put('http://localhost:3000/newInvestment', {
+      await axios.put('/newInvestment', {
         loanId: selectedInvestments,
         userId: userId
       })
