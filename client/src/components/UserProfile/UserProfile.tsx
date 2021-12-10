@@ -9,7 +9,6 @@ import CurrentInvestmentsList from '../AvailableInvestments/CurrentInvestmentsLi
 import LoanAppForm from '../LoanApplication/LoanAppForm';
 import AvailableInvestments from '../AvailableInvestments/AvailableInvestments';
 
-
 interface IUserInfo {
   userId: Number;
   firstName: String;

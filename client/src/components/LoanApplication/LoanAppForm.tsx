@@ -7,9 +7,8 @@ import Confirmation from './Confirmation';
 import Approval from './Approval';
 import  { useUser } from '../UserProfile/UserProfile';
 import { Button } from '@mui/material';
-import {SelectChangeEvent} from '@mui/material';
 
-interface IFormInfo {
+export interface IFormInfo {
   firstName: String;
   lastName: String;
   address: String;
@@ -49,14 +48,6 @@ const LoanAppForm = ({ getLoans }: Props) => {
     apr: undefined,
     term: undefined
   })
-
-  const handleSelectChange = (event: SelectChangeEvent<unknown>) => {
-    setFormInfo({
-      ...formInfo,
-      userId: userId,
-      [event.target.name]: event.target.value,
-    });
-  }
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormInfo({
