@@ -15,7 +15,7 @@ const Header = () => {
           <AppBar position='static'>
             <StyledToolbar >
               <Typography variant='h2' component={Link} to={'/'} sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 2, color: 'white', textDecoration: 'none' }}>
-                LendingClub
+                VentureLend
               </Typography>
               <NavLinks to='/'>About Us</NavLinks>
               <NavLinks to='/'>Our Services</NavLinks>
