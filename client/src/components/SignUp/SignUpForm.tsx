@@ -1,13 +1,9 @@
-import * as React from 'react';
+import React from 'react';
 import {useState, useRef}  from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {useAuth} from '../../contexts/AuthContext';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Alert from '@mui/material/Alert';
+import { useAuth } from '../../contexts/AuthContext';
+import { Button, TextField, Box, Typography, Alert } from '@mui/material';
 
 const SignUpForm = () => {
   const firstNameRef = useRef<HTMLInputElement>(null!);
