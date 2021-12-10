@@ -6,7 +6,6 @@ interface IAuthContext {
   currentUser: any;
   signUp: any;
   logIn: any;
-  logOut: any;
 }
 
 const AuthContext = React.createContext<Partial<IAuthContext>>({});
@@ -27,10 +26,6 @@ export const AuthProvider = ({ children }: any) => {
     return auth.signInWithEmailAndPassword(email, password);
   }
 
-  const logOut = () =>{
-    return auth.signOut();
-  }
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user: any) => {
       setCurrentUser(user);
@@ -43,7 +38,6 @@ export const AuthProvider = ({ children }: any) => {
     currentUser,
     signUp,
     logIn,
-    logOut
   }
 
   return (
