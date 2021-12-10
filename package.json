@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhu-mai-101/LendingClub.git"
+    "url": "git+https://github.com/nhu-mai-101/VentureLend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nhu-mai-101/LendingClub/issues"
+    "url": "https://github.com/nhu-mai-101/VentureLend/issues"
   },
-  "homepage": "https://github.com/nhu-mai-101/LendingClub#readme",
+  "homepage": "https://github.com/nhu-mai-101/VentureLend#readme",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-transform-runtime": "^7.16.4",
