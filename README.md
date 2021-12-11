@@ -47,22 +47,22 @@ Live link: http://3.141.190.231/
 **Make a New Investment:**
 ## Demo
 Landing Page
-![]landing.gif
+![](landing.gif)
 
 Sign Up Page
-![]signup.gif
+![](signup.gif)
 
 Log In Page
-![]login.gif
+![](login.gif)
 
 User Profile
-![]userprofile.gif
+![](userprofile.gif)
 
 Loan Application
-![]loanapplication.gif
+![](loanapplication.gif)
 
 Make a New Investment
-![]investment.gif
+![](investment.gif)
 
 ## API Reference
 #### Get current loans for a given user
