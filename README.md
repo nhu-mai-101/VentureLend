@@ -38,7 +38,7 @@ Live link: http://3.141.190.231/
 ## Features
 **Landing Page:** Allows users to learn about VentureLend, how to borrow a loan, how to invest in a loan, as well as sign up/log in for the service.
 
-**Sign Up/Log In:** Signup allows users to create a new account if they do not already have one. Login lets previously signed-up users log in to their User Profile.
+**Sign Up/Log In:** Sign Up allows users to create a new account if they do not already have one. Log In lets previously signed-up users log in to their User Profile.
 
 **User Profile:** Displays user information, such as name, email, current loans, and current investments. Users can also apply for a new loan or make a new investment.
 
