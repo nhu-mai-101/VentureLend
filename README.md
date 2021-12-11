@@ -1,7 +1,7 @@
 
 # VentureLend
 
-A lending marketplace that connects consumers who seek to borrow money, with investors who are willing to buy or invest in loans.
+A lending marketplace that connects consumers who seek to borrow money, with investors who are willing to buy or invest in loans. Users can be both a borrower and an investor.
 
 Live link: http://3.141.190.231/
 ## Project Requirements
@@ -36,15 +36,15 @@ Live link: http://3.141.190.231/
 - The LoanList component is a reusable component in the user profile. In the Current Loans section, it displays loans that the user is currently borrowing. In the Current Investments section, it displays loans that the user is currently investing in.
 
 ## Features
-**Landing Page:**
+**Landing Page:** Allows users to learn about VentureLend, how to borrow a loan, how to invest in a loan, as well as sign up/log in for the service.
 
-**Sign Up/Log In:**
+**Sign Up/Log In:** Signup allows users to create a new account if they do not already have one. Login lets previously signed-up users log in to their User Profile.
 
-**User Profile:**
+**User Profile:** Displays user information, such as name, email, current loans, and current investments. Users can also apply for a new loan or make a new investment.
 
-**Loan Application:**
+**Loan Application:** Allows users to apply for a new loan through a multi-step form. Collects personal information, financial information, and loan details.
 
-**Make a New Investment:**
+**Make a New Investment:** Allows users to make a new investment. Users get to choose from a list of loans which loan they would like to invest in.
 ## Demo
 Landing Page
 ![](landing.gif)
