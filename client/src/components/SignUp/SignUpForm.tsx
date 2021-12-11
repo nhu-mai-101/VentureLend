@@ -82,7 +82,7 @@ const SignUpForm = () => {
       <TextField
         required
         id='password'
-        label='Password'
+        label='Password (minimum 6 characters)'
         variant='outlined'
         inputRef={passwordRef}
         type='password'
