@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import { Container } from '../SignUp/SignUp'
 import LogInForm from './LogInForm';
 
 const LogIn = () => {
@@ -11,9 +10,3 @@ const LogIn = () => {
 }
 
 export default LogIn;
-
-const Container = styled.div`
-  margin: 50px;
-  padding: 50px;
-  height: 70vh;
-`;

@@ -11,7 +11,7 @@ const SignUp = () => {
 
 export default SignUp;
 
-const Container = styled.div`
+export const Container = styled.div`
   margin: 50px;
   padding: 50px;
   height: 70vh;

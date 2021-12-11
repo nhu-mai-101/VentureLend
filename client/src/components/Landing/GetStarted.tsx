@@ -8,7 +8,7 @@ const GetStarted = () => {
       <Typography variant='h3' color="white" sx={{fontStyle: 'oblique', fontWeight: 'bold', letterSpacing: 1, textAlign: 'center', padding: '10px', width: '75vw', margin: 'auto'}}>
         Ready to get started?
       </Typography>
-      <Button sx={{color:"inherit", fontSize: 30, border: '1px solid white', width: '165px', height: '55px', margin: 'auto'}} component={Link} to={'/signup'}>Sign Up</Button>
+      <Button sx={{color:"white", fontSize: 30, border: '1px solid white', width: '165px', height: '55px', margin: 'auto'}} component={Link} to={'/signup'}>Sign Up</Button>
     </Container>
   )
 }

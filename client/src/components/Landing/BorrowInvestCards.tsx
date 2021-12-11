@@ -13,7 +13,7 @@ const BorrowInvestCards = () => {
             <CardContent>
               <LooksOne sx={{fontSize: '90px', opacity: 0.7, }}/>
               <StepText>
-                Vestibulum cursus ligula et pulvinar pellentesque. Nunc et nunc lacus.
+                Sign up, provide personal information.
               </StepText>
             </CardContent>
           </BorrowerCard>
@@ -21,7 +21,7 @@ const BorrowInvestCards = () => {
             <CardContent>
               <LooksTwo sx={{fontSize: '90px', opacity: 0.7}}/>
               <StepText>
-                Mauris sem ex, volutpat a nulla eu, bibendum interdum libero turpis a.
+                Decide on loan amount, APR and term.
               </StepText>
             </CardContent>
           </BorrowerCard>
@@ -29,7 +29,7 @@ const BorrowInvestCards = () => {
             <CardContent>
               <Looks3 sx={{fontSize: '90px', opacity: 0.7}}/>
               <StepText>
-                Ut in risus interdum, tristique augue sem, nulla turpis pulvinar nunc.
+                100% automatic instant approval!
               </StepText>
             </CardContent>
           </BorrowerCard>
@@ -42,7 +42,7 @@ const BorrowInvestCards = () => {
             <CardContent>
               <LooksOne sx={{fontSize: '90px', opacity: 0.7, }}/>
               <StepText>
-                Maecenas odio sem, imperdiet non viverra sed, venenatis sed massa.
+                Sign up for an account.
               </StepText>
             </CardContent>
           </InvestorCard>
@@ -50,7 +50,7 @@ const BorrowInvestCards = () => {
             <CardContent>
               <LooksTwo sx={{fontSize: '90px', opacity: 0.7}}/>
               <StepText>
-                Pellentesque hendrerit nibh blandit, venenatis eros eget, vehicula nisl.
+                Pick which loans you would like to invest in.
               </StepText>
             </CardContent>
           </InvestorCard>
@@ -58,7 +58,7 @@ const BorrowInvestCards = () => {
             <CardContent>
               <Looks3 sx={{fontSize: '90px', opacity: 0.7}}/>
               <StepText>
-                Etiam laoreet, tellus eget lacinia hendrerit, massa enim semper.
+                Get ready for 10% returns!
               </StepText>
             </CardContent>
           </InvestorCard>

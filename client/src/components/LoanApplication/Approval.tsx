@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Box, Button, Typography, Modal, Alert, AlertTitle } from '@mui/material';
 import { Close } from '@mui/icons-material';
+import { Buttons, style } from './StepOne'
 
 type Props = {
   next: (e: React.SyntheticEvent) => void;
@@ -65,22 +65,3 @@ const Approval = ({ next, resetStep, getLoans, values }: Props) => {
 }
 
 export default Approval;
-
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-const Buttons = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  column-gap: 5px;
-`;

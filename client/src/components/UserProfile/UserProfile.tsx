@@ -5,7 +5,6 @@ import { Card, CardContent, Typography} from '@mui/material';
 import {useAuth} from '../../contexts/AuthContext';
 import {Loans} from '../../../../types/loans';
 import LoanList from './LoanList';
-import CurrentInvestmentsList from '../AvailableInvestments/CurrentInvestmentsList';
 import LoanAppForm from '../LoanApplication/LoanAppForm';
 import AvailableInvestments from '../AvailableInvestments/AvailableInvestments';
 
@@ -113,7 +112,7 @@ const UserProfile = () => {
               <Typography variant='h4' color='primary'>Current Investments:</Typography>
               <AvailableInvestments getInvestments={getInvestments}/>
             </Heading>
-            <CurrentInvestmentsList loans={currentInvestments}/>
+            <LoanList loans={currentInvestments}/>
           </CardContent>
         </Cards>
       </userContext.Provider>

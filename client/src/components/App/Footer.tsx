@@ -13,7 +13,7 @@ const Footer = () => {
               <Typography variant='h4' sx={{ flexGrow: 1, fontWeight: 'medium', letterSpacing: 2 }}>
                 VentureLend
               </Typography>
-            <Box py={3}>Maecenas odio sem, imperdiet non viverra sed, venenatis sed massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</Box>
+            <Box py={3}>A one stop shop for quick and easy personal loans, and investing with great returns!</Box>
             </Box>
             <Box>
               <Instagram />
@@ -23,15 +23,12 @@ const Footer = () => {
             </Box>
           </Grid>
           <Grid item xs={3}>
-            <Box borderBottom={1} fontSize='20px'>Help</Box>
+            <Box borderBottom={1} fontSize='20px'>Contact Us</Box>
             <Box>
-              <NavLinks href='/'>Email</NavLinks>
+              <NavLinks href='/'>Email: support@venturelend.com </NavLinks>
             </Box>
             <Box>
-              <NavLinks href='/'>Phone Number</NavLinks>
-            </Box>
-            <Box>
-              <NavLinks href='/'>Address</NavLinks>
+              <NavLinks href='/'>Phone: (415) 343-5693</NavLinks>
             </Box>
           </Grid>
           <Grid item xs={3}>

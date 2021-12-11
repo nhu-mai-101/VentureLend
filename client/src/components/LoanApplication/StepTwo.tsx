@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Box, Button, Typography, Modal, TextField } from '@mui/material';
 import { Close } from '@mui/icons-material';
+import { Buttons, style } from './StepOne'
 
 type Props = {
   back: (e: React.SyntheticEvent) => void;
@@ -98,22 +98,3 @@ const StepTwo = ({ back, next, resetStep, handleFormChange, values }: Props) => 
 }
 
 export default StepTwo;
-
-const style = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 500,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-const Buttons = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  column-gap: 5px;
-`;
