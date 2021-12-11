@@ -44,7 +44,7 @@ Live link: http://3.141.190.231/
 
 **Loan Application:** Allows users to apply for a new loan through a multi-step form. Collects personal information, financial information, and loan details.
 
-**Make a New Investment:** Allows users to make a new investment. Users get to choose from a list of loans which loan they would like to invest in.
+**Make a New Investment:** Allows users to make a new investment. Users get to choose from a sortable list of loans which loan they would like to invest in.
 ## Demo
 Landing Page
 ![](landing.gif)
