@@ -71,9 +71,9 @@ Make a New Investment
   GET /currentloans
 ```
 
-| Parameter | Type     | Description                       | Response         |
-| :-------- | :------- | :-------------------------------- | :--------------- |
-| `userId`  | `number` | **Required**. Id of user          | Array of objects |
+| Parameter | Type     | Description                       | Response                                   |
+| :-------- | :------- | :-------------------------------- | :----------------------------------------- |
+| `userId`  | `number` | **Required**. Id of user          | Array of objects of loans for a given user |
 
 
 
