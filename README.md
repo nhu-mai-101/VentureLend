@@ -3,7 +3,6 @@
 
 A lending marketplace that connects consumers who seek to borrow money, with investors who are willing to buy or invest in loans. Users can be both a borrower and an investor.
 
-Live link: http://3.141.190.231/
 ## Project Requirements
 
 **Use a modern JS Library/Framework**
