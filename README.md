@@ -3,37 +3,6 @@
 
 A lending marketplace that connects consumers who seek to borrow money, with investors who are willing to buy or invest in loans. Users can be both a borrower and an investor.
 
-## Project Requirements
-
-**Use a modern JS Library/Framework**
-- React.JS
-
-**Application that can be interacted with in a minimum of three ways by the user**
-- User can sign up/log in, apply for a loan, and invest in a loan
-
-**Use a specified architectural pattern**
-- MVC
-
-**Integration of a backend service with CRUD operations**
-- The backend is run on an Express server written in Node.js with GET/POST/PUT routes
-
-**Integration with a 3rd party RESTful Application**
-- Firebase Authentication API
-
-**Use at least 5 UI components from the Material UI Library**
-- Alert
-- AppBar
-- Button
-- Card
-- DataGrid
-- Icons
-- Modal
-- Select
-- TextField
-
-**An example of a reusable component**
-- The LoanList component is a reusable component in the user profile. In the Current Loans section, it displays loans that the user is currently borrowing. In the Current Investments section, it displays loans that the user is currently investing in.
-
 ## Features
 **Landing Page:** Allows users to learn about VentureLend, how to borrow a loan, how to invest in a loan, as well as sign up/log in for the service.
 
