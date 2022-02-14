@@ -1,7 +1,7 @@
 
-# VentureLend
+# VentureLend 🤝
 
-🤝 A lending marketplace that connects consumers who seek to borrow money, with investors who are willing to buy or invest in loans. Users can be both a borrower and an investor.
+A lending marketplace that connects consumers who seek to borrow money, with investors who are willing to buy or invest in loans. Users can be both a borrower and an investor.
 
 ## Features
 **Landing Page:** Allows users to learn about VentureLend, how to borrow a loan, how to invest in a loan, as well as sign up/log in for the service.
