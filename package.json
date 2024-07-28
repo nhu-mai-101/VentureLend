@@ -57,7 +57,7 @@
     "@mui/x-data-grid": "^5.1.0",
     "axios": "^0.24.0",
     "express": "^4.17.3",
-    "firebase": "^9.16.0",
+    "firebase": "^10.12.4",
     "mysql": "^2.18.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
